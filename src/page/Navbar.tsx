@@ -34,17 +34,19 @@ const Navbar = () => {
       </ul>
 
       {/* Responsive Menu for Mobile */}
+      
       <div
         className={`
-            fixed inset-x-0 top-16 mx-auto w-full max-w-sm h-screen
-            bg-black text-white mt-5 rounded-2xl z-40
-            transform transition-transform duration-300 ease-in-out
-            ${isOpen ? "translate-x-0" : "translate-x-full"}  /* สไลด์เข้า–ออกจากขวา */
-            flex flex-col items-center justify-center
+            fixed inset-x-0 top-16 bottom-200 mx-auto w-full h-screen max-h-sm
+            bg-black/90 backdrop-blur-md text-white mt-5  z-40
+            flex flex-col items-center justify-start pt-30
+            transform transition-transform duration-500 ease-in-out
+            ${isOpen ? "translate-x-0" : "translate-x-120"} 
+            
             md:hidden
           `}
       >
-        <ul className="space-y-8 text-xl">
+        <ul className="space-y-10 text-xl text-center ">
           <li>
             <a href="#home">Home</a>
           </li>
