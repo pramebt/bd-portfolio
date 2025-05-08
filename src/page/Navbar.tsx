@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="md:border border-b-gray-300 w-full fixed top-0 left-0 bg-black/50 backdrop-blur md:px-6 px-5 lg:px-8 xl:px-[8%] md:py-4 py-2 flex items-center justify-between z-50">
+    <nav className=" w-full fixed top-0 left-0 bg-black/50 backdrop-blur md:px-6 px-5 lg:px-8 xl:px-[8%] md:py-4 py-2 flex items-center justify-between z-50">
       {/* icon Logo */}
       <a className=" w-28 flex items-center">
         <img src="/assets/logobd.svg" alt="Logo" className="md:w-30 w-20" />
