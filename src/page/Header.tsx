@@ -20,6 +20,7 @@ const Header = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}
+        className="pt-20"
       >
         <img src="/assets/logobd.svg" alt="logo" />
       </motion.div>
