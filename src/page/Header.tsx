@@ -22,7 +22,7 @@ const Header = () => {
         transition={{ delay: 0.3, duration: 0.6 }}
         className="pt-20"
       >
-        <img src="/assets/logobd.svg" alt="logo" />
+        <Image src="/assets/logobd.svg" alt="logo" width={100} height={100} />
       </motion.div>
 
       {/* Texts */}
@@ -106,8 +106,9 @@ const Header = () => {
           <Image
             src="/assets/dowload.png"
             alt="download"
-            width={15}
-            height={15}
+            width={100}
+            height={100}
+            className="w-4"
           />
         </a>
       </motion.div>
@@ -120,23 +121,26 @@ const Header = () => {
         className="flex gap-5 mt-10"
       >
         <a href="https://www.instagram.com/prame.bt/">
-          <img
+          <Image
             src="/assets/instagram-icon.svg"
             alt="Instagram"
+            width={100} height={100}
             className="w-25 transition-transform duration-300 hover:scale-110 hover:opacity-100 opacity-70"
           />
         </a>
         <a href="https://www.facebook.com/bandit.prame/">
-          <img
+          <Image
             src="/assets/facebook-icon.svg"
             alt="Facebook"
+            width={100} height={100}
             className="w-25 transition-transform duration-300 hover:scale-110 hover:opacity-100 opacity-70"
           />
         </a>
         <a href="https://github.com/pramebt">
-          <img
+          <Image
             src="/assets/github-icon.svg"
             alt="GitHub"
+            width={100} height={100}
             className="w-25 transition-transform duration-300 hover:scale-110 hover:opacity-100 opacity-70"
           />
         </a>

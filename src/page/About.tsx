@@ -4,7 +4,7 @@ import React from "react";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import Image from "next/image";
 
 const data = [
   {
@@ -42,11 +42,12 @@ const About = () => {
         successful career as a Web Developer.
       </p>
       <div className="mt-10 flex justify-center">
-        <img
+        <Image
           data-aos="fade-up"
           data-aos-once="false"
           src="/assets/profile.png"
           alt="profile"
+          width={200} height={200}
           className="rounded-full object-cover md:w-50 w-30"
         />
       </div>
