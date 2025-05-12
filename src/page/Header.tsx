@@ -22,7 +22,13 @@ const Header = () => {
         transition={{ delay: 0.3, duration: 0.6 }}
         className="pt-20"
       >
-        <Image src="/assets/logobd.svg" alt="logo" width={100} height={100} />
+        <Image 
+        src="/assets/logobd.svg" 
+        alt="logo" 
+        width={100} 
+        height={100}
+        className="w-40"
+         />
       </motion.div>
 
       {/* Texts */}
