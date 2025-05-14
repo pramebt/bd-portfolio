@@ -23,7 +23,7 @@ const Header = () => {
         className="pt-20"
       >
         <Image 
-        src="/assets/logobd.svg" 
+        src="/assets/icons/logobd.svg" 
         alt="logo" 
         width={100} 
         height={100}
@@ -128,7 +128,7 @@ const Header = () => {
       >
         <a href="https://www.instagram.com/prame.bt/">
           <Image
-            src="/assets/instagram-icon.svg"
+            src="/assets/icons/instagram-icon.svg"
             alt="Instagram"
             width={100} height={100}
             className="w-25 transition-transform duration-300 hover:scale-110 hover:opacity-100 opacity-70"
@@ -136,7 +136,7 @@ const Header = () => {
         </a>
         <a href="https://www.facebook.com/bandit.prame/">
           <Image
-            src="/assets/facebook-icon.svg"
+            src="/assets/icons/facebook-icon.svg"
             alt="Facebook"
             width={100} height={100}
             className="w-25 transition-transform duration-300 hover:scale-110 hover:opacity-100 opacity-70"
@@ -144,7 +144,7 @@ const Header = () => {
         </a>
         <a href="https://github.com/pramebt">
           <Image
-            src="/assets/github-icon.svg"
+            src="/assets/icons/github-icon.svg"
             alt="GitHub"
             width={100} height={100}
             className="w-25 transition-transform duration-300 hover:scale-110 hover:opacity-100 opacity-70"

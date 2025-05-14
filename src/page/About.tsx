@@ -8,12 +8,18 @@ import Image from "next/image";
 
 const data = [
   {
-    title: "test",
-    discription: "test test",
+    title: "Education",
+    icon: "/assets/nu-en-logo.png",
+    header: "Naresuan University",
+    description: "Bachelor Degree of Computer Engineering",
+    years: "June 2021 - Match 2025",
   },
   {
-    title: "test",
-    discription: "test test",
+    title: "Experience",
+    icon: "/assets/forth-logo.png",
+    header: "Forth Smart Service Public Co., Ltd.",
+    description: "Web Developer (Intern)",
+    years: "May 2024 - June 2024",
   },
 ];
 const About = () => {
@@ -30,6 +36,17 @@ const About = () => {
       >
         About me
       </h2>
+      <div className="mt-10 flex justify-center">
+        <Image
+          data-aos="fade-up"
+          data-aos-once="false"
+          src="/assets/profile.png"
+          alt="profile"
+          width={200}
+          height={200}
+          className="md:hidden rounded-full object-cover md:w-50 w-30"
+        />
+      </div>
       <p
         data-aos="fade-up"
         data-aos-once="false"
@@ -45,29 +62,55 @@ const About = () => {
         <Image
           data-aos="fade-up"
           data-aos-once="false"
-          src="/assets/profile.png"
+          src={"/assets/profile.png"}
           alt="profile"
-          width={200} height={200}
-          className="rounded-full object-cover md:w-50 w-30"
+          width={200}
+          height={200}
+          className="hidden md:block rounded-full object-cover md:w-50 w-30"
         />
       </div>
 
       {/* show section */}
-      <div className="bg-[#424242] w-full mx-h-auto mt-10 px-10 py-10">
+      <div className="bg-[#424242]/50 w-full mx-h-auto mt-10 py-7 px-3 md:px-10 md:py-10 rounded-2xl">
         <div className="grid md:grid-cols-2 gid-cols-1 gap-6 px-4">
           {data.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-md p-6 flex flex-col"
-            >
-              {/* หัวข้อ */}
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                {item.title}
-              </h3>
-              {/* รายละเอียด */}
-              <p className="text-gray-600 flex-grow">{item.discription}</p>
+        <div
+          key={index}
+          className="bg-black rounded-lg shadow-md p-6 flex flex-col space-y-4"
+        >
+          {/* หัวข้อหลัก */}
+          <h1 className="text-lg md:text-xl font-semibold text-white">
+            {item.title}
+          </h1>
+
+          {/* รูป + เนื้อหา */}
+          <div className="flex flex-col md:flex-row items-start gap-3 md:gap-4 ">
+            {/* รูปโปรไฟล์ */}
+            <div className="flex-shrink-0 bg-white rounded-full p-2">
+              <Image
+                src={item.icon}
+                alt="logo"
+                width={80}
+                height={80}
+                className="rounded-full object-cover"
+              />
             </div>
-          ))}
+
+            {/* ข้อความ */}
+            <div className="flex-1 flex flex-col">
+              <h2 className="text-sm md:text-lg font-semibold text-white mb-2">
+                {item.header}
+              </h2>
+              <p className="text-gray-400 mb-2 break-words whitespace-normal">
+                {item.description}
+              </p>
+              <p className="text-gray-500">
+                {item.years}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
         </div>
       </div>
     </div>

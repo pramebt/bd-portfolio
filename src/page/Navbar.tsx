@@ -15,7 +15,7 @@ const Navbar = () => {
       {/* icon Logo */}
       <a className=" w-28 flex items-center">
         <Image 
-        src="/assets/logobd.svg" 
+        src="/assets/icons/logobd.svg" 
         alt="Logo"
         width={100} height={100} 
         className="md:w-30 w-20" />
