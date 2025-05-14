@@ -6,7 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import CardDetail from "@/components/CardDetail";
-
+import CardTechstack from "@/components/CardTechstack";
 
 const About = () => {
   useEffect(() => {
@@ -58,10 +58,10 @@ const About = () => {
 
       {/* show section */}
       <div className="bg-black/70 w-full mx-h-auto mt-10 py-7 px-3 md:px-10 md:py-10 rounded-2xl">
-          <CardDetail/>
-        </div>
+        <CardDetail />
+        <CardTechstack/>
       </div>
-
+    </div>
   );
 };
 
