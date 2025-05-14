@@ -5,30 +5,16 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
+import CardDetail from "@/components/CardDetail";
 
-const data = [
-  {
-    title: "Education",
-    icon: "/assets/nu-en-logo.png",
-    header: "Naresuan University",
-    description: "Bachelor Degree of Computer Engineering",
-    years: "June 2021 - Match 2025",
-  },
-  {
-    title: "Experience",
-    icon: "/assets/forth-logo.png",
-    header: "Forth Smart Service Public Co., Ltd.",
-    description: "Web Developer (Intern)",
-    years: "May 2024 - June 2024",
-  },
-];
+
 const About = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
   return (
-    <div id="about" className="w-fulllg:px-[12%] py-10 scroll-mt-20 ">
+    <div id="about" className="w-full lg:px-[12%] py-10 scroll-mt-20 ">
       <h2
         data-aos="fade-up"
         data-aos-once="false"
@@ -71,49 +57,11 @@ const About = () => {
       </div>
 
       {/* show section */}
-      <div className="bg-[#424242]/50 w-full mx-h-auto mt-10 py-7 px-3 md:px-10 md:py-10 rounded-2xl">
-        <div className="grid md:grid-cols-2 gid-cols-1 gap-6 px-4">
-          {data.map((item, index) => (
-        <div
-          key={index}
-          className="bg-black rounded-lg shadow-md p-6 flex flex-col space-y-4"
-        >
-          {/* หัวข้อหลัก */}
-          <h1 className="text-lg md:text-xl font-semibold text-white">
-            {item.title}
-          </h1>
-
-          {/* รูป + เนื้อหา */}
-          <div className="flex flex-col md:flex-row items-start gap-3 md:gap-4 ">
-            {/* รูปโปรไฟล์ */}
-            <div className="flex-shrink-0 bg-white rounded-full p-2">
-              <Image
-                src={item.icon}
-                alt="logo"
-                width={80}
-                height={80}
-                className="rounded-full object-cover"
-              />
-            </div>
-
-            {/* ข้อความ */}
-            <div className="flex-1 flex flex-col">
-              <h2 className="text-sm md:text-lg font-semibold text-white mb-2">
-                {item.header}
-              </h2>
-              <p className="text-gray-400 mb-2 break-words whitespace-normal">
-                {item.description}
-              </p>
-              <p className="text-gray-500">
-                {item.years}
-              </p>
-            </div>
-          </div>
-        </div>
-      ))}
+      <div className="bg-black/70 w-full mx-h-auto mt-10 py-7 px-3 md:px-10 md:py-10 rounded-2xl">
+          <CardDetail/>
         </div>
       </div>
-    </div>
+
   );
 };
 
