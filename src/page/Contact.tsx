@@ -104,7 +104,7 @@ const Contact = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         custom={0}
-        className="text-center text-3xl md:text-4xl lg:text-5xl text-white"
+        className="text-white text-center font-bold text-3xl md:text-4xl lg:text-5xl"
       >
         Contact
       </motion.h2>
@@ -113,7 +113,7 @@ const Contact = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         custom={1}
-        className="text-center max-w-2xl mx-auto mt-5 mb-8 text-base md:text-lg"
+        className="text-center font-bold text-white max-w-2xl mx-auto mt-5 mb-8 text-base md:text-lg"
       >
         You can contact me here.
       </motion.p>
@@ -129,7 +129,7 @@ const Contact = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 mb-8">
           <motion.div className="relative" custom={3} variants={fadeUp}>
-            <p>Name *</p>
+            <p className="text-white">Name *</p>
             <input
               type="text"
               name="name"
@@ -142,7 +142,7 @@ const Contact = () => {
           </motion.div>
 
           <motion.div className="relative" custom={4} variants={fadeUp}>
-            <p>Email *</p>
+            <p className="text-white">Email *</p>
             <input
               type="email"
               name="email"
@@ -156,7 +156,7 @@ const Contact = () => {
         </div>
 
         <motion.div className="relative" custom={5} variants={fadeUp}>
-          <p>Message *</p>
+          <p className="text-white">Message *</p>
           <textarea
             name="message"
             rows={6}
@@ -170,7 +170,7 @@ const Contact = () => {
 
         <motion.button
           type="submit"
-          className="mt-5 py-3 px-8 mx-auto flex bg-black/80 text-white rounded-full hover:bg-black duration-500"
+          className="border border-white mt-5 py-3 px-8 mx-auto flex bg-black/80 text-white rounded-full hover:bg-black duration-500"
           custom={6}
           variants={fadeUp}
         >
