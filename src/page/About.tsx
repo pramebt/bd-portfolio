@@ -15,7 +15,7 @@ const About = () => {
   }, []);
 
   return (
-    <div id="about" className="w-full lg:px-[12%] py-10 scroll-mt-20 ">
+    <div id="about" className="w-full lg:px-[12%] py-10 scroll-mt-40 ">
       <h2
         data-aos="fade-up"
         data-aos-once="false"
