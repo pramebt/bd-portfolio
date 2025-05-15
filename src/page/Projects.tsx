@@ -8,6 +8,7 @@ import Image from "next/image";
 import CardProjects from "@/components/CardProjects";
 
 const Projects = () => {
+  
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
