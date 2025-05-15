@@ -45,7 +45,7 @@ const Navbar = () => {
             bg-black/90 backdrop-blur-md text-white mt-5  z-40
             flex flex-col items-center justify-start pt-30
             transform transition-transform duration-500 ease-in-out
-            ${isOpen ? "translate-x-0" : "translate-x-120"} 
+            ${isOpen ? "translate-x-0" : "translate-x-200"} 
             
             md:hidden
           `}

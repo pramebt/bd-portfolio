@@ -10,7 +10,8 @@ import CardTechstack from "@/components/CardTechstack";
 
 const About = () => {
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+     AOS.init({ duration: 800, once: false });
+    AOS.refresh();
   }, []);
 
   return (
