@@ -45,7 +45,7 @@ const CardTechstack = () => {
             </div>
           </li>
 
-          <li className="border border-white flex items-center space-x-3">
+          <li className="flex items-center space-x-3">
             <span className="text-purple-400 text-lg">●</span>
             <div>
               <span className="text-white font-medium">Tools & Other:</span>
