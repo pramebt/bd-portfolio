@@ -121,7 +121,7 @@ const Contact = () => {
       {/* Form */}
       <motion.form
         onSubmit={onSubmit}
-        className="max-w-2xl mx-auto"
+        className="max-w-2xl mx-auto bg-gray-500/20 md:p-10 p-5 rounded-2xl backdrop-blur"
         variants={fadeUp}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}

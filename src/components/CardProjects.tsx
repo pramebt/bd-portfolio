@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useInView } from "framer-motion";
+
 import Image from "next/image";
 import { TbHandClick } from "react-icons/tb";
 
@@ -9,18 +9,70 @@ const CardProjects = () => {
   const [visibleCount, setVisibleCount] = useState(4);
   const [selectedProjects, setSelectedProject] = useState<{
     title: string;
-    subtitle: string;
+    detail: string;
+    techstack: string;
     link: string;
     image: string;
+    github: string;
   } | null>(null);
 
   const projects = [
-    { title: "Age Calculator (Nextjs)", subtitle: "Calculate age from day, month, year (AD)", link: "https://age-calculator-bd.vercel.app/", image: "/assets/bg/Age-cal.png" },
-    { title: "Todolist (React + Vite)", subtitle: "", link: "https://mini-todolist-bd.vercel.app/", image: "/assets/bg/mini-todolist.png" },
-    { title: "Ticket Generate (Nextjs)", subtitle: "Ticket Generate", link: "https://ticket-generate-bd.vercel.app/", image: "/assets/bg/ticket.png" },
-    { title: "Contactform-BD (Nextjs)", subtitle: "", link: "https://contactform-bd.vercel.app/", image: "/assets/bg/contactform.png" },
-    { title: "Portfolio template BD (React + Vite)", subtitle: "", link: "https://portfolio-bd-template.vercel.app/", image: "/assets/bg/portfolio.png" },
-    { title: "Login UI", subtitle: "training", link: "https://template-login-2.vercel.app/", image: "/assets/bg/template-ui.png" },
+    {
+      title: "Age Calculator (Nextjs)",
+      subtitle: "",
+      link: "https://age-calculator-bd.vercel.app/",
+      image: "/assets/bg/Age-cal.png",
+      techstack: "Next.js Typescript",
+      detail:
+        "Calculate age from day, month, year (AD) Responsive for mobile and pc",
+      github: "https://github.com/pramebt/age-calculator",
+    },
+    {
+      title: "Todolist",
+      subtitle: "",
+      link: "https://mini-todolist-bd.vercel.app/",
+      image: "/assets/bg/mini-todolist.png",
+      techstack: "React.js Vite",
+      detail:
+        "Todo List is a simple yet effective web application for managing your daily tasks and you can add edit delete your task. Whether it’s small chores, important assignments, or simple reminders, this app helps ensure you never miss a thing.\n\n It uses Local Storage to save your data, allowing you to access your task list without the need for an account or internet connection.",
+      github: "https://github.com/pramebt/miniTodolist-bd",
+    },
+    {
+      title: "Ticket Generate",
+      subtitle: "",
+      link: "https://ticket-generate-bd.vercel.app/",
+      image: "/assets/bg/ticket.png",
+      techstack: "Next.js Typescript",
+      detail: "Generate ticket for yourself",
+      github: "https://github.com/pramebt/ticket-generate-bd",
+    },
+    {
+      title: "Contactform-BD",
+      subtitle: "",
+      link: "https://contactform-bd.vercel.app/",
+      image: "/assets/bg/contactform.png",
+      techstack: "Next.js Typescript",
+      detail: "Contactform template",
+      github: "https://github.com/pramebt/contactform-bd",
+    },
+    {
+      title: "Portfolio template BD",
+      subtitle: "",
+      link: "https://portfolio-bd-template.vercel.app/",
+      image: "/assets/bg/portfolio.png",
+      techstack: "React Vite",
+      detail: "portfolio template",
+      github: "https://github.com/pramebt/PortfolioBD",
+    },
+    {
+      title: "Login UI",
+      subtitle: "training",
+      link: "https://template-login-2.vercel.app/",
+      image: "/assets/bg/template-ui.png",
+      techstack: "Next.js Typescript",
+      detail: "trainning clone login ui",
+      github: "",
+    },
   ];
 
   useEffect(() => {
@@ -35,8 +87,14 @@ const CardProjects = () => {
 
   const visibleProjects = showMore ? projects : projects.slice(0, visibleCount);
 
-  const openModal = (projects: { title: string; subtitle: string; link: string; image: string }) => 
-        setSelectedProject(projects);
+  const openModal = (projects: {
+    title: string;
+    detail: string;
+    techstack: string;
+    link: string;
+    image: string;
+    github: string;
+  }) => setSelectedProject(projects);
   const closeModal = () => setSelectedProject(null);
 
   return (
@@ -71,12 +129,18 @@ const CardProjects = () => {
       {/* Modal */}
       {selectedProjects && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm z-50">
-          <div className="bg-white rounded-lg p-6 w-11/12 md:w-1/2 lg:w-1/3 relative">
+          <div className="border border-black bg-white/90 backdrop-blur rounded-lg p-6 w-11/12 md:w-1/2 lg:w-1/3 relative">
             <button
               className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
               onClick={closeModal}
             >
-              &times;
+              <Image
+                src="/assets/icons/close-icon.svg"
+                alt="close"
+                width={200}
+                height={200}
+                className="w-6"
+              />
             </button>
             <h2 className="text-xl font-bold mb-4">{selectedProjects.title}</h2>
             <Image
@@ -86,23 +150,33 @@ const CardProjects = () => {
               height={500}
               className="w-full h-auto rounded-md mb-4"
             />
-            <p className="mb-4">{selectedProjects.subtitle}</p>
-            {/* ใส่รายละเอียดเพิ่มเติมหรือปุ่มลิงก์ภายหลังได้ */}
-            <button
-              className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-              onClick={closeModal}
-            >
-              ปิด
-            </button>
+            <p className="mb-4">{selectedProjects.detail}</p>
+            <p className="mb-4 bg-black text-white px-2 py-2 rounded-3xl">
+              Techstack : {selectedProjects.techstack}
+            </p>
+
+            <div className="flex justify-center gap-10">
+              <a href={selectedProjects.link} target="_blank">
+                <button className="mt-2 px-4 py-2 bg-white text-black rounded-3xl  cursor-pointer ">
+                  Demo
+                </button>
+              </a>
+              <a href={selectedProjects.github} target="_blank">
+                <button className="mt-2 px-4 py-2 bg-black text-white rounded-3xl cursor-pointer ">
+                  GitHub
+                </button>
+              </a>
+            </div>
           </div>
         </div>
       )}
       {!showMore && (
-      <button 
-      onClick={() => setShowMore(true)} 
-      className="w-max flex gap-2 items-center justify-center text-gray-700 border-[0.5px] rounded-full px-10 py-3 mx-auto transition hover:bg-gray-100">
-        show more
-      </button>
+        <button
+          onClick={() => setShowMore(true)}
+          className="w-max flex gap-2 items-center justify-center text-gray-700 border-[0.5px] rounded-full px-10 py-3 mx-auto transition hover:bg-gray-100"
+        >
+          show more
+        </button>
       )}
     </div>
   );
