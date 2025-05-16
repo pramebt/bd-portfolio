@@ -20,6 +20,13 @@ const Projects = () => {
       >
         Projects
       </h2>
+      <h2
+        data-aos="fade-up"
+        data-aos-once={false}
+        className="text-white text-center  text-base md:text-lg "
+      >
+        keep my projects here
+      </h2>
       <CardProjects />
     </div>
   );
