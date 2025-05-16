@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { TbHandClick } from "react-icons/tb";
 
 const CardProjects = () => {
@@ -75,6 +77,7 @@ const CardProjects = () => {
   ];
 
   useEffect(() => {
+    AOS.init({ duration: 800, once: true });
     const handleResize = () => {
       const width = window.innerWidth;
       setVisibleCount(width >= 768 ? 3 : 4);
@@ -102,6 +105,8 @@ const CardProjects = () => {
         {visibleProjects.map((projects, index) => (
           <div
             key={index}
+            data-aos="fade-up"
+            data-aos-once={false}
             className="border border-white bg-black/80 backdrop-blur rounded-4xl px-10 py-10 cursor-pointer hover:scale-105 transition-transform duration-200"
             onClick={() => openModal(projects)}
           >

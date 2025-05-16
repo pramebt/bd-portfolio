@@ -11,7 +11,7 @@ const CardTechstack = () => {
     <div className="grid gid-cols-1 gap-6 px-4">
       <div
         data-aos="fade-up"
-        data-aos-once="false"
+        data-aos-once={false}
         className="mt-5 border border-white bg-black rounded-lg shadow-md p-6 flex flex-col space-y-4"
       >
         <h1 className="text-white text-xl font-semibold">Tech Stack</h1>

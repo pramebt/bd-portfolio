@@ -15,12 +15,12 @@ const Projects = () => {
     <div id="projects" className="w-full mt-50 text-center mx-auto flex flex-col items-center justify-center gap-4 scroll-mt-40">
       <h2
         data-aos="fade-up"
-        data-aos-once="false"
+        data-aos-once={false}
         className="text-white text-center font-bold text-3xl md:text-4xl lg:text-5xl"
       >
         Projects
       </h2>
-      <CardProjects/>
+      <CardProjects />
     </div>
   );
 };
