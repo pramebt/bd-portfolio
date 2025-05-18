@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/page/Navbar";
+import Footer from "@/page/Footer";
 
 // นำเข้า Google Font JetBrains Mono และผูกเป็น CSS variable
 const jetBrainsMono = JetBrains_Mono({
@@ -26,7 +28,15 @@ export default function RootLayout({
       <body
         className={`${jetBrainsMono.className} font-mono antialiased`} // ใช้ font-mono แต่ค่าเป็น Source Code Pro
       >
-        {children}
+        <nav >
+          <Navbar/>
+        </nav>
+        <main className="min-h-screen lg:px-20 md:px-8 px-3">
+          {children}
+        </main>
+        <footer className="relative z-50">
+          <Footer/>
+        </footer>
       </body>
     </html>
   );

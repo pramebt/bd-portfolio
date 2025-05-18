@@ -12,7 +12,7 @@ const Projects = () => {
     AOS.init({ duration: 800, once: true });
   }, []);
   return (
-    <div id="projects" className="w-full mt-50 text-center mx-auto flex flex-col items-center justify-center gap-4 scroll-mt-40">
+    <div id="projects" className="border border-black relative w-full lg:px-[12%] mt-50 text-center  flex flex-col items-center justify-center gap-4 scroll-mt-40">
       <h2
         data-aos="fade-up"
         data-aos-once={false}
@@ -27,7 +27,9 @@ const Projects = () => {
       >
         keep my projects here
       </h2>
-      <CardProjects />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
+        <CardProjects />
+      </div>
     </div>
   );
 };

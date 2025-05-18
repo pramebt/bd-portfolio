@@ -41,7 +41,7 @@ const Navbar = () => {
       
       <div
         className={`
-            fixed inset-x-0 top-16 bottom-200 mx-auto w-full h-screen max-h-sm
+            fixed inset-x-0 top-13 bottom-200 mx-auto w-full h-screen max-h-sm
             bg-black/90 backdrop-blur-md text-white mt-5  z-40
             flex flex-col items-center justify-start pt-30
             transform transition-transform duration-500 ease-in-out

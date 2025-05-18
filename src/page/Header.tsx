@@ -13,7 +13,7 @@ const Header = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="w-11/12  text-center mx-auto h-screen flex flex-col items-center justify-center gap-4"
+      className=" relative w-11/12  text-center mx-auto h-screen flex flex-col items-center justify-center gap-4"
     >
       {/* Profile Image */}
       <motion.div

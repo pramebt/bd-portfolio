@@ -101,13 +101,13 @@ const CardProjects = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
+      
         {visibleProjects.map((projects, index) => (
           <div
             key={index}
             data-aos="fade-up"
             data-aos-once={false}
-            className="border border-white bg-black/80 backdrop-blur rounded-4xl px-10 py-10 cursor-pointer hover:scale-105 transition-transform duration-200"
+            className="border border-white bg-black/80 backdrop-blur rounded-4xl px-10 py-10 cursor-pointer hover:scale-105 transition-all duration-500"
             onClick={() => openModal(projects)}
           >
             <Image
@@ -115,7 +115,7 @@ const CardProjects = () => {
               alt={projects.title}
               width={500}
               height={500}
-              className="border border-white w-full h-[250px] object-contain rounded-2xl"
+              className="border border-white w-full h-[250px] object-cover rounded-2xl"
             />
             <div className="bg-white flex flex-row mt-5 p-4 rounded-lg shadow-sm hover:shadow-md hover:bg-gray-100 transition-all duration-200 ease-in-out">
               <div className="flex flex-col">
@@ -128,7 +128,7 @@ const CardProjects = () => {
             </div>
           </div>
         ))}
-      </div>
+      
 
       {/* Modal */}
       {selectedProjects && (
