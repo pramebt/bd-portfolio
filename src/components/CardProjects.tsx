@@ -101,7 +101,7 @@ const CardProjects = () => {
 
   return (
     <div>
-      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
         {visibleProjects.map((projects, index) => (
           <div
             key={index}
@@ -128,7 +128,7 @@ const CardProjects = () => {
             </div>
           </div>
         ))}
-      
+      </div>
 
       {/* Modal */}
       {selectedProjects && (
@@ -177,12 +177,15 @@ const CardProjects = () => {
       {!showMore && (
         <button
           onClick={() => setShowMore(true)}
-          className="w-max flex gap-2 items-center justify-center text-gray-700 border-[0.5px] rounded-full px-10 py-3 mx-auto transition hover:bg-gray-100"
+          data-aos="fade-up"
+          data-aos-once={false}
+          className="w-max flex gap-2 items-center justify-center text-gray-700 border-[0.5px] bg-black/20 rounded-full px-10 py-3 mx-auto transition hover:bg-gray-100 transition-all duration-200 ease-in-out mt-10"
         >
           show more
         </button>
       )}
     </div>
+    
   );
 };
 

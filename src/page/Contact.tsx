@@ -104,7 +104,7 @@ const Contact = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         custom={0}
-        className="text-white text-center font-bold text-3xl md:text-4xl lg:text-5xl"
+        className="relative text-white text-center font-bold text-3xl md:text-4xl lg:text-5xl"
       >
         Contact
       </motion.h2>
@@ -113,7 +113,7 @@ const Contact = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         custom={1}
-        className="text-center font-bold text-white max-w-2xl mx-auto mt-5 mb-8 text-base md:text-lg"
+        className="relative text-center font-bold text-white max-w-2xl mx-auto mt-5 mb-8 text-base md:text-lg"
       >
         You can contact me here.
       </motion.p>
@@ -121,7 +121,7 @@ const Contact = () => {
       {/* Form */}
       <motion.form
         onSubmit={onSubmit}
-        className="max-w-2xl mx-auto bg-gray-500/20 md:p-10 p-5 rounded-2xl backdrop-blur"
+        className="max-w-2xl mx-auto bg-black/50 md:p-10 p-5 rounded-2xl backdrop-blur"
         variants={fadeUp}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -170,7 +170,7 @@ const Contact = () => {
 
         <motion.button
           type="submit"
-          className="border border-white mt-5 py-3 px-8 mx-auto flex bg-black/80 text-white rounded-full hover:bg-black duration-500"
+          className="border border-white  cursor-pointer mt-5 py-3 px-8 mx-auto flex bg-black/80 text-white rounded-full hover:bg-black duration-500"
           custom={6}
           variants={fadeUp}
         >
