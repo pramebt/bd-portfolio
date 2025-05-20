@@ -6,8 +6,15 @@ import Image from "next/image";
 
 import "aos/dist/aos.css";
 import { TbHandClick } from "react-icons/tb";
+interface ProjectItem {
+  title: string;
+  image: string;
+}
+type Props = {
+  item: ProjectItem;
+};  
 
-const CardProjects = ({ item }: any) => {
+  const CardProjects = ({ item }: Props) => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
@@ -28,7 +35,6 @@ const CardProjects = ({ item }: any) => {
         <div className="bg-white flex flex-row mt-5 p-4 rounded-lg shadow-sm hover:shadow-md hover:bg-gray-100 transition-all duration-200 ease-in-out">
           <div className="flex flex-col">
             <h2 className="font-semibold md:text-base">{item.title}</h2>
-            <h2 className="text-sm md:text-base">{item.subtitle}</h2>
           </div>
           <div className="flex items-center justify-center ml-auto">
             <TbHandClick width={20} height={20} />
