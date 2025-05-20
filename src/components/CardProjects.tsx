@@ -1,11 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import React,{useEffect} from "react";
+
 import AOS from "aos";
+import Image from "next/image";
+
 import "aos/dist/aos.css";
 import { TbHandClick } from "react-icons/tb";
 
-const CardProjects = ({ item }:any) => {
+const CardProjects = ({ item }: any) => {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
   return (
     <div>
       <div
