@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="border border-t-white bg-black text-gray-300 py-6 px-20  ">
+    <footer className="  bg-black text-gray-300 py-6 md:px-20 px-5  ">
        <Image
         src="/assets/icons/logobd.svg"
         alt="logo"
@@ -42,8 +42,37 @@ const Footer = () => {
             bdforwk@gmail.com
           </a>
         </div>
-
-        
+        {/* Social media links */}
+        <div className="flex space-x-4 mt-4 md:mt-0 bg-gray-900/40 px-4 py-4 rounded-3xl">
+          
+          <a href="https://www.facebook.com/bdforwork" target="_blank" rel="noopener noreferrer">
+            <Image 
+              src="/assets/icons/facebook-ft.svg" 
+              alt="Facebook"
+              width={16}
+              height={16}
+              className='w-7'
+            />
+          </a>
+          <a href="https://www.instagram.com/bdforwork/" target="_blank" rel="noopener noreferrer">
+            <Image 
+              src="/assets/icons/instagram-ft.svg" 
+              alt="Instagram"
+              width={16}
+              height={16}
+              className='w-7'
+            />
+          </a>
+          <a href="https://www.linkedin.com/company/bdforwork/" target="_blank" rel="noopener noreferrer">
+            <Image 
+              src="/assets/icons/github-ft.svg" 
+              alt="LinkedIn"
+              width={16}
+              height={16}
+              className='w-7'
+            />
+          </a>
+          </div>
       </div>
     </footer>
   );
