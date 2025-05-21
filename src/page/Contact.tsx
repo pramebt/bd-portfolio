@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-
+import Image from "next/image";
 // Motion variants
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -117,7 +117,41 @@ const Contact = () => {
       >
         You can contact me here.
       </motion.p>
-
+      <motion.div 
+        variants={fadeUp}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        custom={2}
+      className="relative flex justify-center mb-5 space-x-4 mt-4 ">
+                
+                <a href="https://www.facebook.com/bdforwork" target="_blank" rel="noopener noreferrer">
+                  <Image 
+                    src="/assets/icons/facebook-ft.svg" 
+                    alt="Facebook"
+                    width={16}
+                    height={16}
+                    className='w-7'
+                  />
+                </a>
+                <a href="https://www.instagram.com/bdforwork/" target="_blank" rel="noopener noreferrer">
+                  <Image 
+                    src="/assets/icons/instagram-ft.svg" 
+                    alt="Instagram"
+                    width={16}
+                    height={16}
+                    className='w-7'
+                  />
+                </a>
+                <a href="https://www.linkedin.com/company/bdforwork/" target="_blank" rel="noopener noreferrer">
+                  <Image 
+                    src="/assets/icons/github-ft.svg" 
+                    alt="LinkedIn"
+                    width={16}
+                    height={16}
+                    className='w-7'
+                  />
+                </a>
+                </motion.div>
       {/* Form */}
       <motion.form
         onSubmit={onSubmit}
