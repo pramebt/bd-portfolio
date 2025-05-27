@@ -19,11 +19,12 @@ type Props = {
     AOS.init({ duration: 800, once: true });
   }, []);
   return (
-    <div>
+    <div
+    data-aos="fade-up"
+    data-aos-once="false"
+     >
       <div
-        data-aos="fade-up"
-        data-aos-once={false}
-        className=" bg-black/60 backdrop-blur rounded-4xl px-10 py-10 cursor-pointer hover:scale-105 transition-all duration-500"
+        className="bg-black/60 backdrop-blur rounded-4xl px-10 py-10 cursor-pointer transition-all duration-500 ease-in-out hover:scale-105"
       >
         <Image
           src={item.image}

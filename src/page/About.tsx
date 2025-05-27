@@ -5,8 +5,8 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
-import CardDetail from "@/components/CardDetail";
-import CardTechstack from "@/components/CardTechstack";
+import CardDetail from "@/components/card/CardDetail";
+import CardTechstack from "@/components/card/CardTechstack";
 
 const About = () => {
   useEffect(() => {
