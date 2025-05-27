@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/page/Navbar";
+import Navbar from "@/components/Navbar";
 import Footer from "@/page/Footer";
 
 // นำเข้า Google Font JetBrains Mono และผูกเป็น CSS variable

@@ -24,7 +24,7 @@ const SocialLinks = ({ isInView }: { isInView: boolean }) => {
     {[
       { href: "https://www.facebook.com/bdforwork", icon: "facebook-ft.svg", alt: "Facebook" },
       { href: "https://www.instagram.com/bdforwork/", icon: "instagram-ft.svg", alt: "Instagram" },
-      { href: "https://www.linkedin.com/company/bdforwork/", icon: "github-ft.svg", alt: "LinkedIn" },
+      { href: "https://github.com/pramebt", icon: "github-ft.svg", alt: "LinkedIn" },
     ].map(({ href, icon, alt }) => (
       <a key={alt} href={href} target="_blank" rel="noopener noreferrer">
         <Image src={`/assets/icons/${icon}`} alt={alt} width={16} height={16} className="w-7" />
