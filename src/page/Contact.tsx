@@ -1,216 +1,24 @@
 "use client";
 import React, { useRef, useState } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import Image from "next/image";
-// Motion variants
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
+import { useInView } from "framer-motion";
+import AlertBox from "@/components/contact/AlertBox";
+import ContactHeader from "@/components/contact/ContactHeader";
+import SocialLinks from "@/components/contact/SocialLinks";
+import ContactForm from "@/components/contact/ContactForm";
+
 
 const Contact = () => {
   const [result, setResult] = useState("");
   const [showAlert, setShowAlert] = useState(false);
-  const [errors, setErrors] = useState({
-    name: false,
-    email: false,
-    message: false,
-  });
-
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true}); 
-
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setResult("");
-
-    const form = event.target as HTMLFormElement;
-    const formData = new FormData(form);
-
-    const name = formData.get("name")?.toString().trim() || "";
-    const email = formData.get("email")?.toString().trim() || "";
-    const message = formData.get("message")?.toString().trim() || "";
-
-    const newErrors = {
-      name: name === "",
-      email: !/\S+@\S+\.\S+/.test(email),
-      message: message === "",
-    };
-    setErrors(newErrors);
-
-    if (Object.values(newErrors).includes(true)) {
-      setResult("❌ Please fix the highlighted fields.");
-      setShowAlert(true);
-      setTimeout(() => setShowAlert(false), 3000);
-      return;
-    }
-
-    setResult("Sending....");
-    formData.append("access_key", "20720aa8-5d0e-4355-b66c-a1b5076e21d8");
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      setResult("✅ Form submitted successfully!");
-      form.reset();
-      setErrors({ name: false, email: false, message: false });
-    } else {
-      setResult(`❌ ${data.message}`);
-    }
-
-    setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 3000);
-  };
+  const isInView = useInView(ref, { once: true });
 
   return (
-    <div
-      id="contact"
-      ref={ref}
-      className="w-full px-6 md:px-12 lg:px-[12%] py-10 scroll-mt-40 mt-50"
-    >
-      {/* Alert Box */}
-      <AnimatePresence>
-        {showAlert && result && (
-          <motion.div
-            initial={{ opacity: 0, x: -50, y: 50 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            exit={{ opacity: 0, x: -50, y: 50 }}
-            transition={{ duration: 0.4 }}
-            className="fixed bottom-6 left-6 bg-zinc-900 text-white border border-zinc-700 rounded-xl px-6 py-4 shadow-lg z-50 max-w-sm w-[90%] sm:w-full"
-          >
-            <p className={`${result.includes("✅") ? "text-green-400" : "text-red-400"} font-medium`}>
-              {result}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Heading */}
-      <motion.h2
-        variants={fadeUp}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        custom={0}
-        className="relative text-white text-center font-bold text-3xl md:text-4xl lg:text-5xl"
-      >
-        Contact
-      </motion.h2>
-      <motion.p
-        variants={fadeUp}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        custom={1}
-        className="relative text-center font-bold text-white max-w-2xl mx-auto mt-5 mb-8 text-base md:text-lg"
-      >
-        You can contact me here.
-      </motion.p>
-      <motion.div 
-        variants={fadeUp}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        custom={2}
-      className="relative flex justify-center mb-5 space-x-4 mt-4 ">
-                
-                <a href="https://www.facebook.com/bdforwork" target="_blank" rel="noopener noreferrer">
-                  <Image 
-                    src="/assets/icons/facebook-ft.svg" 
-                    alt="Facebook"
-                    width={16}
-                    height={16}
-                    className='w-7'
-                  />
-                </a>
-                <a href="https://www.instagram.com/bdforwork/" target="_blank" rel="noopener noreferrer">
-                  <Image 
-                    src="/assets/icons/instagram-ft.svg" 
-                    alt="Instagram"
-                    width={16}
-                    height={16}
-                    className='w-7'
-                  />
-                </a>
-                <a href="https://www.linkedin.com/company/bdforwork/" target="_blank" rel="noopener noreferrer">
-                  <Image 
-                    src="/assets/icons/github-ft.svg" 
-                    alt="LinkedIn"
-                    width={16}
-                    height={16}
-                    className='w-7'
-                  />
-                </a>
-                </motion.div>
-      {/* Form */}
-      <motion.form
-        onSubmit={onSubmit}
-        className="max-w-2xl mx-auto bg-black/50 md:p-10 p-5 rounded-2xl backdrop-blur"
-        variants={fadeUp}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        custom={2}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 mb-8">
-          <motion.div className="relative" custom={3} variants={fadeUp}>
-            <p className="text-white">Name *</p>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              className={`mt-2 p-3 w-full border rounded-md bg-white outline-none cursor-pointer ${
-                errors.name ? "border-red-500" : "border-gray-400"
-              }`}
-            />
-            {errors.name && <p className="text-red-500 text-sm mt-1">Name is required</p>}
-          </motion.div>
-
-          <motion.div className="relative" custom={4} variants={fadeUp}>
-            <p className="text-white">Email *</p>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              className={`mt-2 p-3 w-full border rounded-md bg-white outline-none cursor-pointer ${
-                errors.email ? "border-red-500" : "border-gray-400"
-              }`}
-            />
-            {errors.email && <p className="text-red-500 text-sm mt-1">Enter a valid email</p>}
-          </motion.div>
-        </div>
-
-        <motion.div className="relative" custom={5} variants={fadeUp}>
-          <p className="text-white">Message *</p>
-          <textarea
-            name="message"
-            rows={6}
-            placeholder="Enter your message"
-            className={`mt-2 w-full p-4 border rounded-md bg-white outline-none resize-none cursor-pointer ${
-              errors.message ? "border-red-500" : "border-gray-400"
-            }`}
-          ></textarea>
-          {errors.message && <p className="text-red-500 text-sm mb-5">Message is required</p>}
-        </motion.div>
-
-        <motion.button
-          type="submit"
-          className="border border-white  cursor-pointer mt-5 py-3 px-8 mx-auto flex bg-black/80 text-white rounded-full hover:bg-black duration-500"
-          custom={6}
-          variants={fadeUp}
-        >
-          Submit now
-        </motion.button>
-      </motion.form>
+    <div id="contact" ref={ref} className="w-full px-6 md:px-12 lg:px-[12%] py-10 scroll-mt-40 mt-50">
+      <AlertBox result={result} showAlert={showAlert} />
+      <ContactHeader isInView={isInView} />
+      <SocialLinks isInView={isInView} />
+      <ContactForm setResult={setResult} setShowAlert={setShowAlert} />
     </div>
   );
 };
