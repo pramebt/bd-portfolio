@@ -10,8 +10,12 @@ const fadeUp = {
     transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
   }),
 };
+type ContactFormProps = {
+  setResult: React.Dispatch<React.SetStateAction<string>>;
+  setShowAlert: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const ContactForm = ({ setResult, setShowAlert }: any) => {
+const ContactForm = ({ setResult, setShowAlert }: ContactFormProps) => {
   const [errors, setErrors] = useState({
     name: false,
     email: false,
